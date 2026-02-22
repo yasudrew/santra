@@ -5,6 +5,7 @@ import {
   useContext,
   useState,
   useEffect,
+  useCallback,
   type ReactNode,
 } from "react";
 
@@ -59,25 +60,30 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   }, [items, loaded]);
 
-  const addItem = (item: CartItem) => {
+  const addItem = useCallback((item: CartItem) => {
     setItems((prev) => {
-      // 既にカートにある場合は追加しない（デジタル商品なので重複不要）
       if (prev.some((i) => i.id === item.id)) return prev;
       return [...prev, item];
     });
-  };
+  }, []);
 
-  const removeItem = (id: string) => {
+  const removeItem = useCallback((id: string) => {
     setItems((prev) => prev.filter((i) => i.id !== id));
-  };
+  }, []);
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     setItems([]);
-  };
+    // localStorage も即座にクリア（レース条件を防止）
+    try {
+      localStorage.removeItem(CART_STORAGE_KEY);
+    } catch {
+      // 無視
+    }
+  }, []);
 
-  const isInCart = (id: string) => {
+  const isInCart = useCallback((id: string) => {
     return items.some((i) => i.id === id);
-  };
+  }, [items]);
 
   const totalPrice = items.reduce((sum, item) => sum + item.price, 0);
   const itemCount = items.length;

@@ -1,16 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useCart } from "@/components/cart/CartProvider";
 
 export default function CheckoutSuccessPage() {
   const { clearCart } = useCart();
+  const cleared = useRef(false);
 
-  // 決済完了後にカートをクリア
+  // 決済完了後にカートをクリア（1回だけ実行）
   useEffect(() => {
-    clearCart();
-  }, []);
+    if (!cleared.current) {
+      cleared.current = true;
+      clearCart();
+    }
+  }, [clearCart]);
 
   return (
     <div className="mx-auto max-w-md px-4 py-16 text-center">
