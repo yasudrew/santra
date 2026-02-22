@@ -12,7 +12,7 @@ export default function Home() {
               Worship Tracks for Japanese Churches
             </p>
             <h1 className="text-6xl sm:text-8xl font-black tracking-tight bg-gradient-to-r from-violet-500 via-fuchsia-500 to-rose-500 bg-clip-text text-transparent">
-              サントラ
+              賛美Tracks.com
             </h1>
             <p className="text-lg text-muted-foreground max-w-md mx-auto">
               ハイクオリティなステムデータで、
