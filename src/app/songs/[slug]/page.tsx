@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { formatPrice, formatDuration, instrumentLabels } from "@/lib/utils";
 import StemList from "@/components/songs/StemList";
+import AddToCartButton from "@/components/songs/AddToCartButton";
 import type { Metadata } from "next";
 
 type Props = {
@@ -31,7 +32,6 @@ export default async function SongDetailPage({ params }: Props) {
   const { slug } = await params;
   const supabase = await createClient();
 
-  // 楽曲情報を取得
   const { data: song } = await supabase
     .from("songs")
     .select(`
@@ -49,7 +49,6 @@ export default async function SongDetailPage({ params }: Props) {
     notFound();
   }
 
-  // ステムをsort_orderでソート
   const sortedStems = (song.stems || []).sort(
     (a: any, b: any) => (a.sort_order || 0) - (b.sort_order || 0)
   );
@@ -148,9 +147,7 @@ export default async function SongDetailPage({ params }: Props) {
             <span className="text-2xl font-bold">
               {formatPrice(song.price)}
             </span>
-            <button className="rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-opacity">
-              カートに追加
-            </button>
+            <AddToCartButton song={song} />
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import CartButton from "@/components/cart/CartButton";
 import type { User } from "@supabase/supabase-js";
 
 export default function Header() {
@@ -15,13 +16,11 @@ export default function Header() {
   useEffect(() => {
     const supabase = createClient();
 
-    // 現在のユーザーを取得
     supabase.auth.getUser().then(({ data: { user } }) => {
       setUser(user);
       setLoading(false);
     });
 
-    // 認証状態の変化を監視
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
@@ -65,8 +64,12 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* Auth Buttons */}
+        {/* Right Side */}
         <div className="flex items-center gap-3">
+          {/* Cart */}
+          <CartButton />
+
+          {/* Auth */}
           {loading ? (
             <div className="w-20 h-8 rounded-lg bg-muted animate-pulse" />
           ) : user ? (
@@ -83,7 +86,6 @@ export default function Header() {
                 </span>
               </button>
 
-              {/* Dropdown Menu */}
               {menuOpen && (
                 <>
                   <div
