@@ -11,7 +11,8 @@ export default async function AdminSongsPage() {
     .from("songs")
     .select(`
       *,
-      artist:artists(name)
+      artist:artists(name),
+      stems(id)
     `)
     .order("created_at", { ascending: false });
 
@@ -36,8 +37,7 @@ export default async function AdminSongsPage() {
               <tr className="border-b border-border bg-muted/30">
                 <th className="text-left px-4 py-3 font-medium text-muted-foreground">タイトル</th>
                 <th className="text-left px-4 py-3 font-medium text-muted-foreground hidden sm:table-cell">アーティスト</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground hidden md:table-cell">キー</th>
-                <th className="text-left px-4 py-3 font-medium text-muted-foreground hidden md:table-cell">BPM</th>
+                <th className="text-center px-4 py-3 font-medium text-muted-foreground hidden md:table-cell">ステム</th>
                 <th className="text-right px-4 py-3 font-medium text-muted-foreground">価格</th>
                 <th className="text-center px-4 py-3 font-medium text-muted-foreground">公開</th>
                 <th className="text-right px-4 py-3 font-medium text-muted-foreground">操作</th>
@@ -57,15 +57,10 @@ export default async function AdminSongsPage() {
                   <td className="px-4 py-3 text-muted-foreground hidden sm:table-cell">
                     {song.artist?.name || "-"}
                   </td>
-                  <td className="px-4 py-3 hidden md:table-cell">
-                    {song.song_key && (
-                      <span className="rounded bg-violet-500/10 px-1.5 py-0.5 text-xs text-violet-400">
-                        {song.song_key}
-                      </span>
-                    )}
-                  </td>
-                  <td className="px-4 py-3 text-muted-foreground hidden md:table-cell">
-                    {song.bpm || "-"}
+                  <td className="px-4 py-3 text-center hidden md:table-cell">
+                    <span className="rounded bg-muted px-2 py-0.5 text-xs">
+                      {song.stems?.length || 0}
+                    </span>
                   </td>
                   <td className="px-4 py-3 text-right font-medium">
                     {formatPrice(song.price)}
@@ -82,12 +77,20 @@ export default async function AdminSongsPage() {
                     )}
                   </td>
                   <td className="px-4 py-3 text-right">
-                    <Link
-                      href={`/admin/songs/${song.id}/edit`}
-                      className="rounded border border-border px-3 py-1 text-xs hover:bg-accent transition-colors"
-                    >
-                      編集
-                    </Link>
+                    <div className="flex items-center justify-end gap-2">
+                      <Link
+                        href={`/admin/songs/${song.id}/stems`}
+                        className="rounded border border-border px-3 py-1 text-xs hover:bg-accent transition-colors"
+                      >
+                        📁 ステム
+                      </Link>
+                      <Link
+                        href={`/admin/songs/${song.id}/edit`}
+                        className="rounded border border-border px-3 py-1 text-xs hover:bg-accent transition-colors"
+                      >
+                        編集
+                      </Link>
+                    </div>
                   </td>
                 </tr>
               ))}

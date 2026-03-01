@@ -23,7 +23,7 @@ export default async function DownloadsPage() {
     .select(`
       *,
       song:songs(
-        id, title, slug, song_key, bpm,
+        id, title, slug, song_key, bpm, chord_chart_url,
         artist:artists(name),
         stems(id, name, instrument_type, sort_order)
       )
@@ -44,7 +44,7 @@ export default async function DownloadsPage() {
 
       <h1 className="text-2xl font-bold mb-2">ダウンロード</h1>
       <p className="text-sm text-muted-foreground mb-8">
-        購入した楽曲のステムデータをダウンロードできます
+        購入した楽曲のステムデータとコード譜をダウンロードできます
       </p>
 
       {!downloads || downloads.length === 0 ? (
@@ -69,6 +69,8 @@ export default async function DownloadsPage() {
             const sortedStems = (song.stems || []).sort(
               (a: any, b: any) => (a.sort_order || 0) - (b.sort_order || 0)
             );
+
+            const isMaxed = dl.download_count >= dl.max_downloads;
 
             return (
               <div
@@ -110,8 +112,26 @@ export default async function DownloadsPage() {
                     <p className="text-xs text-muted-foreground">
                       DL: {dl.download_count} / {dl.max_downloads}
                     </p>
+                    {isMaxed && (
+                      <p className="text-[10px] text-destructive mt-0.5">上限に達しました</p>
+                    )}
                   </div>
                 </div>
+
+                {/* Chord Chart */}
+                {song.chord_chart_url && (
+                  <div className="flex items-center justify-between px-5 py-3 border-b border-border bg-amber-500/5">
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm">📄</span>
+                      <span className="text-sm font-medium">コード譜（PDF）</span>
+                    </div>
+                    <DownloadButton
+                      songId={song.id}
+                      chart
+                      disabled={isMaxed}
+                    />
+                  </div>
+                )}
 
                 {/* Stems */}
                 <div className="divide-y divide-border">
@@ -130,7 +150,7 @@ export default async function DownloadsPage() {
                         songId={song.id}
                         stemId={stem.id}
                         stemName={stem.name}
-                        disabled={dl.download_count >= dl.max_downloads}
+                        disabled={isMaxed}
                       />
                     </div>
                   ))}
@@ -141,7 +161,7 @@ export default async function DownloadsPage() {
                   <DownloadButton
                     songId={song.id}
                     allStems
-                    disabled={dl.download_count >= dl.max_downloads}
+                    disabled={isMaxed}
                   />
                 </div>
               </div>
