@@ -13,7 +13,7 @@ export default function CartButton() {
     >
       <span className="text-sm">🛒</span>
       {itemCount > 0 && (
-        <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-violet-600 text-[10px] font-bold text-white flex items-center justify-center">
+        <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-sky-600 text-[10px] font-bold text-white flex items-center justify-center">
           {itemCount}
         </span>
       )}

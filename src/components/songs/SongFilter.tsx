@@ -65,11 +65,11 @@ function FilterContent({ tags }: { tags: Tag[] }) {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           placeholder="楽曲名で検索..."
-          className="flex-1 rounded-lg border border-border bg-background px-4 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+          className="flex-1 rounded-lg border border-border bg-background px-4 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
         />
         <button
           type="submit"
-          className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-medium text-white hover:bg-violet-700 transition-colors"
+          className="rounded-lg bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700 transition-colors"
         >
           検索
         </button>
@@ -85,7 +85,7 @@ function FilterContent({ tags }: { tags: Tag[] }) {
               onClick={() => handleTagClick(tag.slug)}
               className={`rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
                 isActive
-                  ? "bg-violet-600 text-white"
+                  ? "bg-sky-600 text-white"
                   : "bg-muted text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -98,7 +98,7 @@ function FilterContent({ tags }: { tags: Tag[] }) {
         <select
           value={searchParams.get("key") || ""}
           onChange={(e) => handleKeyChange(e.target.value)}
-          className="rounded-full border border-border bg-background px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-violet-500"
+          className="rounded-full border border-border bg-background px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-sky-500"
         >
           <option value="">キー: すべて</option>
           {MUSIC_KEYS.map((k) => (

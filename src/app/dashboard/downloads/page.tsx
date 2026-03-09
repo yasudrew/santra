@@ -55,7 +55,7 @@ export default async function DownloadsPage() {
           </p>
           <Link
             href="/songs"
-            className="inline-block mt-4 rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity"
+            className="inline-block mt-4 rounded-lg bg-gradient-to-r from-sky-600 to-teal-500 px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity"
           >
             楽曲を探す
           </Link>
@@ -80,13 +80,13 @@ export default async function DownloadsPage() {
                 {/* Song Header */}
                 <div className="flex items-center justify-between px-5 py-4 border-b border-border">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-sky-500/20 to-teal-500/20 flex items-center justify-center">
                       <span className="text-xl">🎵</span>
                     </div>
                     <div>
                       <Link
                         href={`/songs/${song.slug}`}
-                        className="font-semibold hover:text-violet-400 transition-colors"
+                        className="font-semibold hover:text-sky-400 transition-colors"
                       >
                         {song.title}
                       </Link>
@@ -95,12 +95,12 @@ export default async function DownloadsPage() {
                           {song.artist?.name}
                         </p>
                         {song.song_key && (
-                          <span className="rounded bg-violet-500/10 px-1.5 py-0.5 text-[10px] font-medium text-violet-400">
+                          <span className="rounded bg-sky-500/10 px-1.5 py-0.5 text-[10px] font-medium text-sky-400">
                             {song.song_key}
                           </span>
                         )}
                         {song.bpm && (
-                          <span className="rounded bg-fuchsia-500/10 px-1.5 py-0.5 text-[10px] font-medium text-fuchsia-400">
+                          <span className="rounded bg-teal-500/10 px-1.5 py-0.5 text-[10px] font-medium text-teal-400">
                             {song.bpm}BPM
                           </span>
                         )}

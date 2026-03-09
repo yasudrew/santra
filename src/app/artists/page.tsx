@@ -27,9 +27,9 @@ export default async function ArtistsPage() {
           <Link
             key={artist.id}
             href={`/artists/${artist.slug}`}
-            className="group rounded-xl border border-border bg-card p-6 text-center hover:border-violet-500/40 transition-all duration-200 hover:shadow-lg hover:shadow-violet-500/5"
+            className="group rounded-xl border border-border bg-card p-6 text-center hover:border-sky-500/40 transition-all duration-200 hover:shadow-lg hover:shadow-sky-500/5"
           >
-            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
+            <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-sky-500/20 to-teal-500/20 flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
               {artist.image_url ? (
                 <img
                   src={artist.image_url}
@@ -40,7 +40,7 @@ export default async function ArtistsPage() {
                 <span className="text-3xl">🎤</span>
               )}
             </div>
-            <h3 className="font-semibold text-sm group-hover:text-violet-400 transition-colors">
+            <h3 className="font-semibold text-sm group-hover:text-sky-400 transition-colors">
               {artist.name}
             </h3>
             {artist.name_en && (

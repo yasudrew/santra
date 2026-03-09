@@ -69,7 +69,7 @@ export default async function ArtistDetailPage({ params }: Props) {
 
       {/* Artist Header */}
       <div className="flex items-center gap-6 mb-10">
-        <div className="w-24 h-24 rounded-full bg-gradient-to-br from-violet-500/20 to-fuchsia-500/20 flex items-center justify-center flex-shrink-0">
+        <div className="w-24 h-24 rounded-full bg-gradient-to-br from-sky-500/20 to-teal-500/20 flex items-center justify-center flex-shrink-0">
           {artist.image_url ? (
             <img
               src={artist.image_url}

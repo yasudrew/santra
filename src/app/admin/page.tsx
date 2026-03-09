@@ -60,7 +60,7 @@ export default async function AdminDashboard() {
           <Link
             key={stat.label}
             href={stat.href}
-            className="rounded-xl border border-border bg-card p-4 hover:border-violet-500/40 transition-colors"
+            className="rounded-xl border border-border bg-card p-4 hover:border-sky-500/40 transition-colors"
           >
             <div className="text-2xl mb-1">{stat.icon}</div>
             <p className="text-2xl font-bold">{stat.value}</p>
@@ -75,7 +75,7 @@ export default async function AdminDashboard() {
           <h2 className="text-lg font-semibold">最近の注文</h2>
           <Link
             href="/admin/orders"
-            className="text-sm text-violet-500 hover:text-violet-400 transition-colors"
+            className="text-sm text-sky-500 hover:text-sky-400 transition-colors"
           >
             すべて見る →
           </Link>

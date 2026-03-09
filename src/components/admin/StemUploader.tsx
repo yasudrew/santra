@@ -119,7 +119,7 @@ export default function StemUploader({ songId, songSlug, stems }: Props) {
   };
 
   const inputClass =
-    "w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent";
+    "w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent";
 
   return (
     <div className="space-y-6">
@@ -208,7 +208,7 @@ export default function StemUploader({ songId, songSlug, stems }: Props) {
               accept=".wav,.mp3,.aiff,.flac"
               onChange={(e) => setNewFile(e.target.files?.[0] || null)}
               required
-              className="w-full text-sm text-muted-foreground file:mr-2 file:rounded-lg file:border-0 file:bg-violet-600 file:px-3 file:py-2 file:text-xs file:font-medium file:text-white hover:file:opacity-90"
+              className="w-full text-sm text-muted-foreground file:mr-2 file:rounded-lg file:border-0 file:bg-sky-600 file:px-3 file:py-2 file:text-xs file:font-medium file:text-white hover:file:opacity-90"
             />
           </div>
         </div>
@@ -216,7 +216,7 @@ export default function StemUploader({ songId, songSlug, stems }: Props) {
         <button
           type="submit"
           disabled={uploading || !newFile || !newName}
-          className="rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-opacity disabled:opacity-50"
+          className="rounded-lg bg-gradient-to-r from-sky-600 to-teal-500 px-6 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-opacity disabled:opacity-50"
         >
           {uploading ? "アップロード中..." : "アップロード"}
         </button>

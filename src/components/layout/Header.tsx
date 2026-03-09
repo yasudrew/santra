@@ -42,9 +42,10 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-lg">
       <div className="mx-auto max-w-6xl flex items-center justify-between px-4 h-14">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-black bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-clip-text text-transparent">
-            賛トラ
+        <Link href="/" className="flex items-center gap-1">
+          <span className="text-xl font-black bg-gradient-to-r from-sky-500 to-teal-500 bg-clip-text text-transparent">
+            <span className="font-[var(--font-mplus1p)]">賛美</span>
+            <span className="font-[var(--font-inter)]">Tracks.com</span>
           </span>
         </Link>
 
@@ -78,7 +79,7 @@ export default function Header() {
                 onClick={() => setMenuOpen(!menuOpen)}
                 className="flex items-center gap-2 rounded-lg border border-border px-3 py-1.5 text-sm hover:bg-accent transition-colors"
               >
-                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 flex items-center justify-center text-xs text-white font-medium">
+                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-sky-500 to-teal-500 flex items-center justify-center text-xs text-white font-medium">
                   {user.email?.[0].toUpperCase()}
                 </div>
                 <span className="hidden sm:inline text-muted-foreground">
@@ -128,7 +129,7 @@ export default function Header() {
               </Link>
               <Link
                 href="/auth/register"
-                className="rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-1.5 text-sm font-medium text-white hover:opacity-90 transition-opacity"
+                className="rounded-lg bg-gradient-to-r from-sky-600 to-teal-500 px-4 py-1.5 text-sm font-medium text-white hover:opacity-90 transition-opacity"
               >
                 登録
               </Link>

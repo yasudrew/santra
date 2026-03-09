@@ -66,7 +66,7 @@ export default function CartPage() {
         </p>
         <Link
           href="/songs"
-          className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-opacity"
+          className="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-sky-600 to-teal-500 px-6 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-opacity"
         >
           楽曲を探す
         </Link>
@@ -90,7 +90,7 @@ export default function CartPage() {
         {items.map((item) => (
           <div key={item.id} className="flex items-center gap-4 p-4">
             {/* Cover */}
-            <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 flex items-center justify-center flex-shrink-0">
+            <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-sky-500/10 to-teal-500/10 flex items-center justify-center flex-shrink-0">
               {item.cover_image_url ? (
                 <img
                   src={item.cover_image_url}
@@ -106,7 +106,7 @@ export default function CartPage() {
             <div className="flex-1 min-w-0">
               <Link
                 href={`/songs/${item.slug}`}
-                className="text-sm font-medium hover:text-violet-400 transition-colors line-clamp-1"
+                className="text-sm font-medium hover:text-sky-400 transition-colors line-clamp-1"
               >
                 {item.title}
               </Link>
@@ -144,7 +144,7 @@ export default function CartPage() {
         <button
           onClick={handleCheckout}
           disabled={loading}
-          className="w-full rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-3 text-sm font-medium text-white hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-lg bg-gradient-to-r from-sky-600 to-teal-500 px-4 py-3 text-sm font-medium text-white hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? "処理中..." : `${formatPrice(totalPrice)} で購入する`}
         </button>

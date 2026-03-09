@@ -125,7 +125,7 @@ export default function ChartUploader({ songId, currentUrl }: Props) {
           <p className="text-sm text-muted-foreground mb-3">
             コード譜PDFをアップロード
           </p>
-          <label className="inline-block rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-opacity cursor-pointer">
+          <label className="inline-block rounded-lg bg-gradient-to-r from-sky-600 to-teal-500 px-6 py-2.5 text-sm font-medium text-white hover:opacity-90 transition-opacity cursor-pointer">
             {uploading ? "アップロード中..." : "📄 PDFを選択"}
             <input
               type="file"

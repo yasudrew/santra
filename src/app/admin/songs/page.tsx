@@ -22,7 +22,7 @@ export default async function AdminSongsPage() {
         <h1 className="text-2xl font-bold">楽曲管理</h1>
         <Link
           href="/admin/songs/new"
-          className="rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity"
+          className="rounded-lg bg-gradient-to-r from-sky-600 to-teal-500 px-4 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity"
         >
           + 楽曲を追加
         </Link>

@@ -30,25 +30,21 @@ export default function DownloadButton({
       throw new Error(data.error || "ダウンロードに失敗しました");
     }
 
-    // JSONレスポンス（全ステムDLの場合）
     const contentType = response.headers.get("content-type");
     if (contentType?.includes("application/json")) {
       const data = await response.json();
       if (data.downloadAll && data.stems) {
-        // 各ステムを順番にダウンロード
         for (const stem of data.stems) {
           await downloadFile(
             `/api/download/${songId}?stemId=${stem.id}`,
             `${stem.name}.wav`
           );
-          // 少し待つ（ブラウザが複数DLをブロックしないように）
           await new Promise((r) => setTimeout(r, 500));
         }
         return;
       }
     }
 
-    // バイナリレスポンス
     const blob = await response.blob();
     const blobUrl = window.URL.createObjectURL(blob);
     const a = document.createElement("a");
@@ -92,7 +88,6 @@ export default function DownloadButton({
     }
   };
 
-  // コード譜ボタン
   if (chart) {
     return (
       <div className="space-y-1">
@@ -108,14 +103,13 @@ export default function DownloadButton({
     );
   }
 
-  // 全ステムボタン
   if (allStems) {
     return (
       <div className="space-y-1">
         <button
           onClick={handleDownload}
           disabled={disabled || loading}
-          className="w-full rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-4 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-lg bg-gradient-to-r from-sky-600 to-teal-500 px-4 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? "ダウンロード中..." : "📦 全ステムをダウンロード"}
         </button>
@@ -126,7 +120,6 @@ export default function DownloadButton({
     );
   }
 
-  // 個別ステムボタン
   return (
     <div className="flex items-center gap-2">
       {error && <p className="text-xs text-destructive">{error}</p>}

@@ -20,10 +20,10 @@ export default function SongCard({ song }: SongCardProps) {
   return (
     <Link
       href={`/songs/${song.slug}`}
-      className="group rounded-xl border border-border bg-card overflow-hidden hover:border-violet-500/40 transition-all duration-200 hover:shadow-lg hover:shadow-violet-500/5"
+      className="group rounded-xl border border-border bg-card overflow-hidden hover:border-sky-500/40 transition-all duration-200 hover:shadow-lg hover:shadow-sky-500/5"
     >
       {/* Cover Image */}
-      <div className="aspect-square bg-gradient-to-br from-violet-500/10 to-fuchsia-500/10 flex items-center justify-center relative overflow-hidden">
+      <div className="aspect-square bg-gradient-to-br from-sky-500/10 to-teal-500/10 flex items-center justify-center relative overflow-hidden">
         {song.cover_image_url || song.album?.cover_image_url ? (
           <img
             src={song.cover_image_url || song.album?.cover_image_url}
@@ -45,7 +45,7 @@ export default function SongCard({ song }: SongCardProps) {
       {/* Info */}
       <div className="p-4 space-y-2">
         <div>
-          <h3 className="font-semibold text-sm group-hover:text-violet-400 transition-colors line-clamp-1">
+          <h3 className="font-semibold text-sm group-hover:text-sky-400 transition-colors line-clamp-1">
             {song.title}
           </h3>
           {song.artist && (
@@ -58,12 +58,12 @@ export default function SongCard({ song }: SongCardProps) {
         {/* Meta */}
         <div className="flex items-center gap-2">
           {song.song_key && (
-            <span className="rounded bg-violet-500/10 px-1.5 py-0.5 text-[10px] font-medium text-violet-400">
+            <span className="rounded bg-sky-500/10 px-1.5 py-0.5 text-[10px] font-medium text-sky-400">
               {song.song_key}
             </span>
           )}
           {song.bpm && (
-            <span className="rounded bg-fuchsia-500/10 px-1.5 py-0.5 text-[10px] font-medium text-fuchsia-400">
+            <span className="rounded bg-teal-500/10 px-1.5 py-0.5 text-[10px] font-medium text-teal-400">
               {song.bpm}BPM
             </span>
           )}

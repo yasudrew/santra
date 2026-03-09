@@ -64,7 +64,7 @@ export default async function AdminOrdersPage() {
 
                 {/* User Info */}
                 <div className="px-5 py-3 border-b border-border flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 flex items-center justify-center text-xs text-white font-medium">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-r from-sky-500 to-teal-500 flex items-center justify-center text-xs text-white font-medium">
                     {order.profile?.display_name?.[0] || "?"}
                   </div>
                   <div>

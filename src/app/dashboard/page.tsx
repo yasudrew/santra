@@ -51,7 +51,7 @@ export default async function DashboardPage() {
       {/* Profile Card */}
       <div className="rounded-xl border border-border bg-card p-6 space-y-4">
         <div className="flex items-center gap-4">
-          <div className="w-14 h-14 rounded-full bg-gradient-to-r from-violet-500 to-fuchsia-500 flex items-center justify-center text-xl text-white font-bold">
+          <div className="w-14 h-14 rounded-full bg-gradient-to-r from-sky-500 to-teal-500 flex items-center justify-center text-xl text-white font-bold">
             {user.email?.[0].toUpperCase()}
           </div>
           <div>
@@ -86,10 +86,10 @@ export default async function DashboardPage() {
       <div className="mt-6 grid sm:grid-cols-2 gap-4">
         <Link
           href="/dashboard/downloads"
-          className="rounded-xl border border-border bg-card p-5 hover:border-violet-500/40 transition-all group"
+          className="rounded-xl border border-border bg-card p-5 hover:border-sky-500/40 transition-all group"
         >
           <div className="text-2xl mb-2">📥</div>
-          <h3 className="font-semibold group-hover:text-violet-400 transition-colors">
+          <h3 className="font-semibold group-hover:text-sky-400 transition-colors">
             ダウンロード
           </h3>
           <p className="text-xs text-muted-foreground mt-1">
@@ -98,10 +98,10 @@ export default async function DashboardPage() {
         </Link>
         <Link
           href="/songs"
-          className="rounded-xl border border-border bg-card p-5 hover:border-violet-500/40 transition-all group"
+          className="rounded-xl border border-border bg-card p-5 hover:border-sky-500/40 transition-all group"
         >
           <div className="text-2xl mb-2">🎵</div>
-          <h3 className="font-semibold group-hover:text-violet-400 transition-colors">
+          <h3 className="font-semibold group-hover:text-sky-400 transition-colors">
             楽曲を探す
           </h3>
           <p className="text-xs text-muted-foreground mt-1">
@@ -121,7 +121,7 @@ export default async function DashboardPage() {
             </p>
             <Link
               href="/songs"
-              className="inline-block mt-4 rounded-lg bg-gradient-to-r from-violet-600 to-fuchsia-600 px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity"
+              className="inline-block mt-4 rounded-lg bg-gradient-to-r from-sky-600 to-teal-500 px-6 py-2 text-sm font-medium text-white hover:opacity-90 transition-opacity"
             >
               楽曲を探す
             </Link>
@@ -164,7 +164,7 @@ export default async function DashboardPage() {
                         <div>
                           <Link
                             href={`/songs/${item.song?.slug || ""}`}
-                            className="text-sm font-medium hover:text-violet-400 transition-colors"
+                            className="text-sm font-medium hover:text-sky-400 transition-colors"
                           >
                             {item.song?.title || "不明な楽曲"}
                           </Link>

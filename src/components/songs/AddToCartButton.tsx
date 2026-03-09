@@ -39,7 +39,7 @@ export default function AddToCartButton({ song }: AddToCartButtonProps) {
       className={`rounded-lg px-6 py-2.5 text-sm font-medium transition-all ${
         inCart
           ? "bg-muted text-foreground border border-border hover:bg-destructive/10 hover:text-destructive hover:border-destructive/30"
-          : "bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white hover:opacity-90"
+          : "bg-gradient-to-r from-sky-600 to-teal-500 text-white hover:opacity-90"
       }`}
     >
       {inCart ? "カートから削除" : "カートに追加"}
